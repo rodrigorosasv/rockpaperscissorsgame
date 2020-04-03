@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+</head>
+<body>
+    <h1>Welcome, this is the Rock, Paper, Scissors game!</h1>
+    <script>
+        var rps=["r","p","s"]
+
+        var tieCounter=0;
+        var winCounter=0;
+        var loseCounter=0;
+
+        for(var i=0; i<10; i++){
+            var userInput=prompt("Writte r,p or s");
+
+            if(userInput==="r"){
+                console.log("User selected rock");
+                document.write("User selected rock </br>");
+            }
+            else if(userInput==="p"){
+                console.log("User selected paper");
+                document.write("User selected paper </br>");
+            }
+            else if(userInput==="s"){
+                console.log("User selected scissors");
+                document.write("User selected scissors </br>");
+            }
+
+            var random = Math.floor(Math.random()*3) +1;
+            
+            /*console.log(random)*/
+            if(random===1){
+                console.log("Computer selected rock");
+                document.write("Computer selected rock </br>");
+            }
+            else if(random===2){
+                console.log("Computer selected paper");
+                document.write("Computer selected paper </br>");
+            }
+            else if(random===3){
+                console.log("Computer selected scissors");
+                document.write("Computer selected scissors </br>");
+            }
+
+            if(userInput===rps[random-1]){
+                console.log("It's a tie");
+                document.write("It's a tie </br>");
+                tieCounter++;
+                console.log("Number of ties: "+tieCounter);
+                document.write("Number of ties: "+tieCounter+"</br>");
+            }
+            else if((userInput==="r"&&rps[random-1]==="p")||(userInput==="p"&&rps[random-1]==="s")||(userInput==="s"&&rps[random-1]==="r")){
+                console.log("Computer wins");
+                document.write("Computer wins </br>");
+                loseCounter++;
+                console.log("Number of losses: "+loseCounter);
+                document.write("Number of losses: "+loseCounter+"</br>");
+            }
+            else if((userInput==="r"&&rps[random-1]==="s")||(userInput==="p"&&rps[random-1]==="r")||(userInput==="s"&&rps[random-1]==="p")){
+                console.log("User wins");
+                document.write("User wins </br>");
+                winCounter++;
+                console.log("Number of wins: "+winCounter);
+                document.write("Number of wins: "+winCounter+"</br>");
+            };
+
+            console.log("___________________________");
+            document.write("___________________________ </br>");
+        }
+
+        console.log("You tie: " + tieCounter + " times");
+        document.write("You tie: " + tieCounter + " times </br>");
+        console.log("You win: " + winCounter + " times");
+        document.write("You win: " + winCounter + " times </br>");
+        console.log("You lose: " + loseCounter + " times");
+        document.write("You lose: " + loseCounter + " times </br>");
+    </script>
+</body>
+</html>
